@@ -7,6 +7,22 @@
 </head>
 <body>
 <script>
+const pressed = [];
+const secretCode = 'cheatcode'
+
+window.addEventListener('keyup', (e) => {
+  console.log(e.key);
+  pressed.push(e.key);
+  console.log(pressed);
+  //starts at end of secretCode and goes up 10 characters
+  pressed.splice(-secretCode - 1, pressed.length - secretCode.length);
+  // check to see if array pressed contains secret code.
+  // pressed.join('') turns array items into string.
+  if(pressed.join('').includes(secretCode)) {
+    console.log('DING DING DING! You did it.');
+    cornify_add();
+  }
+});
 </script>
 </body>
 </html>
